@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+
+print(" WELCOME  TO THE EMPLOYEE MANAGEMENT PROGRAM ! \n ")
 # Program to log in and acces data
 
 users = {}
@@ -12,11 +14,10 @@ data = pd.read_csv('Employee-Management.csv')
 #-----------------------------------------------------------------------------------------------------------
 #---------------------------------------------LOG IN MENU -------------------------------------------
 while (t):
-    print(""" WELCOME BACK TO THE EMPLOYEE MANAGEMENT PROGRAM ! 
-            What would you like to do ? 
-                    -Press '0' if you would like to would like to log in 
-                    -Press '1' if you woukd like to register
-                    -Press '9' if you want to exit the program """) # Display the menu for letting the user now what to do 
+    print(""" 
+                    -Press '0' : Log In 
+                    -Press '1' : Register
+                    -Press '9':  Exit """) # Display the menu for letting the user now what to do 
     
     action  = input() #what did the user choose  ? 
 
@@ -52,6 +53,7 @@ while (t):
     elif(action == '9'):
         t=False
         print(' \n Session closed ')
+        quit
     else:
          print('\n Option NOT Valid, try again! \n')
 
@@ -79,10 +81,10 @@ while(t):
         x = input(" 1 : Display  first few rows         2 : Display all dataset               3: Search for  specific data      4 : Exit  \n:") 
         if(x=='1'): #Display the first few rows 
              print(data.head())
-             z=input("Anything Else you want to do ? \n:")# Re-select another option 
+             x=input("Anything Else you want to do ? \n:")# Re-select another option 
         elif(x=='2'):#Display the whole data set 
              print(data)
-             z=input("Anything Else you want to do ? \n:")# Re-select another option 
+             x=input("Anything Else you want to do ? \n:")# Re-select another option 
         elif(x=='3'): # Incase they choose to display specific data ... :( 
             
             opts = [ 'Department', 'Designation' , 'Hire Date'  ,'Anual Salary (USD)'] # load columns on array
