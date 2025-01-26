@@ -63,88 +63,91 @@ while (t):
 #-----------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------
 #---------------------------------------------NAVIGATION MENU  -------------------------------------------
+menu = True
+while(menu):
+    z = input("""SELECT OPTION 
+                    1 : Display and search for  data
+                    2 : Calculate means 
+                    3 : Calculate medians 
+                    4 : Exit 
+                    :""")
 
-z = input("""SELECT OPTION 
-                1 : Display and search for  data
-                2 : Calculate means 
-                3 : Calculate medians 
-                4 : Exit 
-                :""")
+    t = True 
+    while(t): 
 
-t = True 
-while(t): 
-
-#-----------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------
-#---------------------------------------------IF THEY CHOOSE DISPLAY DATA ... -------------------------------------------
-    if(z=='1'):#If they choose to display data ...
-        x = input(" 1 : Display  first few rows         2 : Display all dataset               3: Search for  specific data      4 : Exit  \n:") 
-        if(x=='1'): #Display the first few rows 
-             print(data.head())
-             x=input("Anything Else you want to do ? \n:")# Re-select another option 
-        elif(x=='2'):#Display the whole data set 
-             print(data)
-             x=input("Anything Else you want to do ? \n:")# Re-select another option 
-        elif(x=='3'): # Incase they choose to display specific data ... :( 
-            
-            opts = [ 'Department', 'Designation' , 'Hire Date'  ,'Anual Salary (USD)'] # load columns on array
-            option = input(" Type option to filter : " + str(opts) + '\n') #Show the columns 
-            if option in opts :  #If no spelling mistake was done ...
+    #-----------------------------------------------------------------------------------------------------------
+    #-----------------------------------------------------------------------------------------------------------
+    #---------------------------------------------IF THEY CHOOSE DISPLAY DATA ... -------------------------------------------
+        if(z=='1'):#If they choose to display data ...
+            x = input(" 1 : Display  first few rows         2 : Display all dataset               3: Search for  specific data      4 : Back to menu  \n:") 
+            if(x=='1'): #Display the first few rows 
+                print(data.head())
+                #x=input("Anything Else you want to do ? \n:")# Re-select another option 
+            elif(x=='2'):#Display the whole data set 
+                print(data)
+                #x=input("Anything Else you want to do ? \n:")# Re-select another option 
+            elif(x=='3'): # Incase they choose to display specific data ... :( 
                 
-                answ = input('Do you want to see all the options available for your choice? Y/N') #Does he want to check the department
-                if answ.lower() == 'y' : print(data[option].unique()) #Show unique Designations  
-                filt = True
-                while(filt):
-                    print(data[data[option] == (input("Which one you want to filter ? "))] ) # Print that column chose
+                opts = [ 'Department', 'Designation' , 'Hire Date'  ,'Anual Salary (USD)'] # load columns on array
+                option = input(" Type option to filter : " + str(opts) + '\n') #Show the columns 
+                if option in opts :  #If no spelling mistake was done ...
                     
-                    #If they want to exit -----------------------------------------------------
-                    p = input('Exit ? Y/N') #Give the user option to exit 
-                    if p.lower() == 'y':# If they want to e1xit() ...  
-                            print(" \n Session Closed " )
-                            filt = False #exit loop 
-                    #If a spelling mistake was done -----------------------------------------------
-                    else : print('That option is not available ! \n')
+                    answ = input('Do you want to see all the options available for your choice? Y/N') #Does he want to check the department
+                    if answ.lower() == 'y' : print(data[option].unique()) #Show unique Designations  
+                    filt = True
+                    while(filt):
+                        print(data[data[option] == (input("Which one you want to filter ? "))] ) # Print that column chose
+                        
+                        #If they want to exit -----------------------------------------------------
+                        p = input('Exit ? Y/N') #Give the user option to exit 
+                        if p.lower() == 'y':# If they want to e1xit() ...  
+                                print(" \n Session Closed " )
+                                filt = False #exit loop 
+                        
+                        
 
 
-        elif( x == '4'):
-              print("Session Closed ! ")
-              t = False
-                         
-
-
+            elif( x == '4'):
+                print("Session Closed!")
+                t = False
                 
-                              
-        
-        
-        
-        
-        else: #If they enter another number ... 
-             print('Option not valid')
-             z=input("Anything Else you want to do ? \n:") # Re-select another option 
-    
+                            
 
-#-----------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------
-#---------------------------------------------IF THEY CHOSE CALCULATE MEANS ....-------------------------------------------
-    elif(z=='2'):
-         print('x') #If they choose to Calculate the means ... 
-         
-         
-    
-    
-    
-    
-    
-    
-    elif(z=='4'):
-         print("""THANK YOU FOR USING THE APP !
-                    Session Closed """)
-         t = False
 
-         
-                  
+                    
+                                
+            
+            
+            
+            
+            else: #If they enter another number ... 
+                print('Option not valid')
+                z=input("Anything Else you want to do ? \n:") # Re-select another option 
+        
 
-                
+    #-----------------------------------------------------------------------------------------------------------
+    #-----------------------------------------------------------------------------------------------------------
+    #---------------------------------------------IF THEY CHOSE CALCULATE MEANS ....-------------------------------------------
+        elif(z=='2'):
+            print('x') #If they choose to Calculate the means ... 
+            
+            
+        
+        
+        
+        
+        
+        
+        elif(z=='4'):
+            print("""THANK YOU FOR USING THE APP !
+                        Session Closed """)
+            menu = False
+            
+
+            
+                    
+
+                    
     
         
     
